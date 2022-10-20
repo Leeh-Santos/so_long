@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   support.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/20 21:29:13 by learodri         ###   ########.fr       */
+/*   Created: 2022/10/20 21:17:27 by learodri          #+#    #+#             */
+/*   Updated: 2022/10/20 21:56:57 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../headers/so_long.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
+char	*ber_to_str(fd)
+{
+	char	*temp;
 
-void    boom(char *str);
-char	*ber_to_str(int fd);
-char	*get_next_line(int fd);
-
-#endif
+	while(!get_next_line(fd))
+	{
+		temp = get_next_line(fd);	
+	}
+}

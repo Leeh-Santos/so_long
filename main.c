@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/18 20:50:17 by learodri         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:15:05 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct fodase{
     void *image3;
     int img_dimen;  
     void **map; //map matrix
-
+    char *map_str;
 }isso;
 
 
@@ -75,17 +75,19 @@ int main(int argc, char *argv[])
     fd = open(argv[1], O_RDONLY);
     if (fd < 0)
         boom("map.bar blowed up");
+
+    all.map_str = ber_to_str(fd);
     
     all.img_dimen = 30;
     all.mlx = mlx_init(); //to use all the others init conection with graphical sis
-    all.window = mlx_new_window(all.mlx, 1120, 820, "so_fuckin_long");
+    all.window = mlwdddx_new_window(all.mlx, 1120, 820, "sdo_fuckin_long");
     all.image = mlx_xpm_file_to_image(all.mlx,"jony.xpm", &all.img_dimen, &all.img_dimen);
     all.image2 = mlx_xpm_file_to_image(all.mlx, "black.xpm", &all.img_dimen, &all.img_dimen);
     all.image3 = mlx_xpm_file_to_image(all.mlx, "index.xpm", &all.img_dimen, &all.img_dimen);
 
     mlx_put_image_to_window(all.mlx, all.window, all.image, 400 , 400); 
     
-    for ( int i = 0 ; i <= 30; i++){
+    /*for ( int i = 0 ; i <= 30; i++){
         mlx_put_image_to_window(all.mlx, all.window, all.image3, x_axis + 30*i, y_axis); 
         mlx_put_image_to_window(all.mlx, all.window, all.image3, x_axis + 30*i, y_axis + 30*i); 
         mlx_put_image_to_window(all.mlx, all.window, all.image3, x_axis, y_axis + 30*i);
@@ -93,7 +95,7 @@ int main(int argc, char *argv[])
         mlx_put_image_to_window(all.mlx, all.window, all.image3, x_axis - 30*i, y_axis - 30*i); 
         mlx_put_image_to_window(all.mlx, all.window, all.image3, x_axis, y_axis - 30*i);
         
-    };
+    };*/
     
 
     mlx_hook(all.window,02,(1L<<0), key, &all);

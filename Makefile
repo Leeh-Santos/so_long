@@ -1,6 +1,8 @@
 
 SRCS	= main.c \
 			rest/errors.c \
+			rest/get_next_line.c \
+			rest/support.c \
 
 OBJS	= $(SRCS:.c=.o)
 

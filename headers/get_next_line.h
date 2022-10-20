@@ -6,12 +6,13 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:05:23 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/18 19:05:58 by learodri         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:33:03 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# define BUFFER_SIZE 42
 
 # include <stdlib.h>
 # include <unistd.h>
