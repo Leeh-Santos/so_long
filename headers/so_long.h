@@ -12,14 +12,15 @@
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
+# define BUFFER_SIZE 1
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <string.h>
 
 void    boom(char *str);
-char	*ber_to_str(int fd);
+char	*ber_to_str(int fd, char *str);
 char	*get_next_line(int fd);
 
 #endif
