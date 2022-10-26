@@ -24,10 +24,13 @@ typedef struct fodase{
     int img_dimen;  
     void **map; //map matrix
     char *map_str;
+    int line;
+    int colun;
 }isso;
 
 
-int key(int keycode, void *pointer){
+int key(int keycode, void *pointer)
+{
     static int  y = 400; //coordenadas
     static int  x = 400; //coordenadas
     isso *novo; //struct pointer 
@@ -68,7 +71,10 @@ int main(int argc, char *argv[])
     isso    all;
     int fd;
     (void)argc;
+
     static char *str;
+    int tamanho;
+    char *newstrmap;
 
     int y_axis = 400; // 30px +/- relative move
     int x_axis = 400;
@@ -76,10 +82,27 @@ int main(int argc, char *argv[])
     fd = open(argv[1], O_RDONLY);
     if (fd < 0)
         boom("map.bar blowed up");
+    all.map_str = malloc((999) * sizeof(char)); // por algum motivo funciona se malocar
+    all.map_str = ber_to_str(fd, str); // recebe mapa.ber 
 
-    all.map_str = ber_to_str(fd, str);
 
-    printf("%s", all.map_str);
+
+
+    //all.line = linecount(all.map_str);  *****quebra aqui*********
+    //printf("%d", all.line);
+
+
+    printf("%s \n", all.map_str);
+
+
+    tamanho = strlen(all.map_str);
+    //printf("%d \n \n", tamanho);
+
+    newstrmap = malloc((tamanho) * sizeof(char));
+    newstrmap = all.map_str;
+    printf("%s", newstrmap);
+
+    all.line = linecount(newstrmap);
     
     all.img_dimen = 30;
     all.mlx = mlx_init(); //to use all the others init conection with graphical sis

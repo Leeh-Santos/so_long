@@ -91,6 +91,24 @@ char	*ber_to_str(int fd, char *str)
 	free(temp);
 	//printf("%s", str);
 	return (str);
+}
 
-	
+int	linecount(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+
+	while (str[0] != '\0')
+	{
+			if (str[i] == '\n')
+				count++;
+		i++;
+	}
+
+	count--;
+
+	return (count);
 }

@@ -22,5 +22,6 @@
 void    boom(char *str);
 char	*ber_to_str(int fd, char *str);
 char	*get_next_line(int fd);
+int	linecount(char *str);
 
 #endif
