@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/20 21:15:05 by learodri         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:21:42 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int main(int argc, char *argv[])
     int fd;
     (void)argc;
 
-    static char *str;
+   
     int tamanho;
-    char *newstrmap;
+    char *map_srt_cpy;
 
     int y_axis = 400; // 30px +/- relative move
     int x_axis = 400;
@@ -82,27 +82,35 @@ int main(int argc, char *argv[])
     fd = open(argv[1], O_RDONLY);
     if (fd < 0)
         boom("map.bar blowed up");
-    all.map_str = malloc((999) * sizeof(char)); // por algum motivo funciona se malocar
-    all.map_str = ber_to_str(fd, str); // recebe mapa.ber 
 
 
+    map_srt_cpy = malloc((999) * sizeof(char)); // SO FUNCIONA SE MALOCAR
+    map_srt_cpy = ber_to_str(fd); // recebe mapa.ber 
+    printf("%s \n", map_srt_cpy);
 
 
-    //all.line = linecount(all.map_str);  *****quebra aqui*********
-    //printf("%d", all.line);
+    tamanho = ft_strlen(map_srt_cpy);
+    printf("%d \n \n", tamanho);
 
-
+    all.map_str = malloc((tamanho) * sizeof(char)); // tamanho certinho para struct
+    all.map_str = map_srt_cpy;
     printf("%s \n", all.map_str);
+    
 
 
-    tamanho = strlen(all.map_str);
-    //printf("%d \n \n", tamanho);
+    all.line = linecount(all.map_str);
+    all.colun = coluncount(all.map_str);
+    printf("%d \n", all.line);
+    printf("%d \n", all.colun);
 
-    newstrmap = malloc((tamanho) * sizeof(char));
-    newstrmap = all.map_str;
-    printf("%s", newstrmap);
+    
+    mtxalloc(all.map, all.line, all.colun);
 
-    all.line = linecount(newstrmap);
+    free(map_srt_cpy); // libera o malloc 999
+
+
+
+
     
     all.img_dimen = 30;
     all.mlx = mlx_init(); //to use all the others init conection with graphical sis

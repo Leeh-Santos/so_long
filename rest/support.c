@@ -70,10 +70,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char	*ber_to_str(int fd, char *str)
+char	*ber_to_str(int fd)
 {
 	char	*temp;
-	
+	static char *str;
 	int	check;
 
 	temp = malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -101,14 +101,25 @@ int	linecount(char *str)
 	i = 0;
 	count = 0;
 
-	while (str[0] != '\0')
+	while (str[i] != '\0')
 	{
 			if (str[i] == '\n')
 				count++;
 		i++;
 	}
 
-	count--;
-
 	return (count);
+}
+
+int	coluncount(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\n')
+	{
+		i++;
+	}
+
+	return (i);
 }

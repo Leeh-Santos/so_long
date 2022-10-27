@@ -2,6 +2,7 @@
 SRCS	= main.c \
 			rest/errors.c \
 			rest/support.c \
+			rest/support2.c \
 
 OBJS	= $(SRCS:.c=.o)
 
