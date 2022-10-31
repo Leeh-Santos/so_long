@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/27 20:21:42 by learodri         ###   ########.fr       */
+/*   Updated: 2022/10/31 21:24:31 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct fodase{
     void *image2;
     void *image3;
     int img_dimen;  
-    void **map; //map matrix
+    char **map; //map matrix //ANTES ERA VOID **MAP
     char *map_str;
     int line;
     int colun;
@@ -70,6 +70,7 @@ int main(int argc, char *argv[])
 {
     isso    all;
     int fd;
+    
     (void)argc;
 
    
@@ -104,7 +105,11 @@ int main(int argc, char *argv[])
     printf("%d \n", all.colun);
 
     
-    mtxalloc(all.map, all.line, all.colun);
+    
+    /*alocar matriz e jogar str nela fazer funcao pro maloc e outra para atribuir mtx*/
+
+    
+    /*mtxalloc(all.map, all.line, all.colun);*/
 
     free(map_srt_cpy); // libera o malloc 999
 
