@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/31 21:24:31 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/03 19:57:55 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,31 @@ int main(int argc, char *argv[])
     all.line = linecount(all.map_str);
     all.colun = coluncount(all.map_str);
     printf("%d \n", all.line);
-    printf("%d \n", all.colun);
+    printf("%d \n\n\n", all.colun);
 
     
-    
-    /*alocar matriz e jogar str nela fazer funcao pro maloc e outra para atribuir mtx*/
 
+    //all.map = alocamtx(all.line, all.colun);
     
-    /*mtxalloc(all.map, all.line, all.colun);*/
+    /*all.map = (char **)malloc(all.line * sizeof(char*));
+    while (i < all.colun)
+	{
+		all.map[i] = (char *)malloc(all.colun * sizeof(char));
+		i++;
+	}*/
+
+    all.map = mtxalloc(all.line, all.colun, all.map_str);
+
+    /*para verificar se a str esta na matrix 
+    for (int i = 0; i < all.line ; i++){
+        for(int k = 0; k < all.colun; k++){
+            printf("%c ", all.map[i][k]);
+        }
+        printf("\n");
+    }*/
+    
+    
+  
 
     free(map_srt_cpy); // libera o malloc 999
 

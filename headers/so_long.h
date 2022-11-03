@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/31 21:19:13 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/03 19:57:49 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*get_next_line(int fd);
 int	linecount(char *str);
 int	coluncount(char *str);
 size_t	ft_strlen(char *str);
-//char    **mtxalloc(char **mtx, int line, int colun, char *str);
+char    **mtxalloc(int line, int colun, char *str);
 
 #endif
