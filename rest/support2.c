@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:17:03 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/03 19:57:54 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:03:47 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,29 @@ char 	**mtxalloc(int line, int colun, char *str)
 		i++;
 	}
 	return (mtx);
+}
+
+void	map_render(isso *info)
+{
+	/*for (int i = 0; i < all.line ; i++){
+        for(int k = 0; k < all.colun; k++){
+            printf("%c ", all.map[i][k]);
+        }
+	*/
+	int i;
+	int	k;
+
+	i = 0;
+	k = 0;
+	while(i < info->line)
+	{
+		k = 0;
+		while(k < info->colun)
+		{
+			if(info->map[i][k] == '1')
+				mlx_put_image_to_window(info->mlx, info->window,)
+			k++;
+		}
+		i++;
+	}
 }
