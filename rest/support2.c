@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:17:03 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/03 22:03:47 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:59:22 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char 	**mtxalloc(int line, int colun, char *str)
 	i = 0;
 	k = 0;
 	i_str = 0;
-	mtx = (char **)malloc(line * sizeof(char*));
+	mtx = malloc(line * sizeof(char*));
     while (i < colun)
 	{
-		mtx[i] = (char *)malloc(colun * sizeof(char));
+		mtx[i] = malloc(colun * sizeof(char));
 		i++;
 	}
     i = 0;
@@ -63,7 +63,21 @@ void	map_render(isso *info)
 		while(k < info->colun)
 		{
 			if(info->map[i][k] == '1')
-				mlx_put_image_to_window(info->mlx, info->window,)
+				mlx_put_image_to_window(info->mlx, info->window, info->image4, k*64, i*64);
+			else if(info->map[i][k] == '0')
+				mlx_put_image_to_window(info->mlx, info->window, info->image2, k*64, i*64);
+			else if(info->map[i][k] == 'P')
+			{
+				mlx_put_image_to_window(info->mlx, info->window, info->image, k*64, i*64);
+				info->cord_x = k*64;
+				info->cord_y = i*64;
+			}
+			else if(info->map[i][k] == 'E')
+				mlx_put_image_to_window(info->mlx, info->window, info->image5, k*64, i*64);
+			else if(info->map[i][k] == 'C')
+				mlx_put_image_to_window(info->mlx, info->window, info->image3, k*64, i*64);
+			else
+				boom("Map Problem, please add a compatible.ber");
 			k++;
 		}
 		i++;

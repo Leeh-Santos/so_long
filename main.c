@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/03 22:04:03 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:13:09 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,33 @@
 
 int key(int keycode, void *pointer)
 {
-    static int  y = 0; //coordenadas
-    static int  x = 0; //coordenadas
+    //tatic int  y = 0; //coordenadas
+    //static int  x = 0; //coordenadas
     isso *novo; //struct pointer 
 
     novo = pointer;
-    printf("%d \n", keycode);
-    //x += (((keycode == 100) - (keycode == 97)) * 30);
-    //y += (((keycode == 115) - (keycode == 119)) * 30);
+    printf("%d \n", keycode); // for debug
+    //x += (((keycode == 100) - (keycode == 97)) * 64);
+    //y += (((keycode == 115) - (keycode == 119)) * 64);
     if (keycode == 115){ //down
-        y += 64; 
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, x , y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, x , y - 64);
+        novo->cord_y += 64; 
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x , novo->cord_y);
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x , novo->cord_y - 64);
         }
     if (keycode == 119){ // upp
-        y -= 64;
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, x , y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, x , y + 64);
+        novo->cord_y -= 64;
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  , novo->cord_y + 64);
         }
     if (keycode == 97){ // left
-        x -= 64;
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, x , y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, x + 64, y);
+        novo->cord_x -= 64;
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  + 64, novo->cord_y);
         }
     if (keycode == 100){ //right
-        x += 64;
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, x , y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, x - 64, y);
+        novo->cord_x += 64;
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
+        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  - 64, novo->cord_y);
         }
     if (keycode == 65307)
         exit(EXIT_FAILURE);
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     if (fd < 0)
         boom("map.bar blowed up");
 
-
+    
     map_srt_cpy = malloc((999) * sizeof(char)); // SO FUNCIONA SE MALOCAR
     map_srt_cpy = ber_to_str(fd); // recebe mapa.ber 
     printf("%s \n", map_srt_cpy);
@@ -100,37 +100,38 @@ int main(int argc, char *argv[])
 
     all.map = mtxalloc(all.line, all.colun, all.map_str);
 
-    /*para verificar se a str esta na matrix 
+    //para verificar se a str esta na matrix 
     for (int i = 0; i < all.line ; i++){
         for(int k = 0; k < all.colun; k++){
             printf("%c ", all.map[i][k]);
         }
         printf("\n");
-    }*/
+    }
     
     
   
+    if(map_srt_cpy)
+        free(map_srt_cpy); // libera o malloc 999
 
-    free(map_srt_cpy); // libera o malloc 999
 
-
-
+    
 
     
     all.img_dimen = 64;
     all.mlx = mlx_init(); //to use all the others init conection with graphical sis
-    all.window = mlx_new_window(all.mlx, all.colun*64, all.line*64, "sdo_fuckin_long");
-    all.image = mlx_xpm_file_to_image(all.mlx,"jony.xpm", &all.img_dimen, &all.img_dimen);
+    all.window = mlx_new_window(all.mlx, all.colun*64, all.line*64, "so_fuckin_long");
+    all.image = mlx_xpm_file_to_image(all.mlx,"brabo.xpm", &all.img_dimen, &all.img_dimen);
     all.image2 = mlx_xpm_file_to_image(all.mlx, "floor.xpm", &all.img_dimen, &all.img_dimen);
     all.image3 = mlx_xpm_file_to_image(all.mlx, "calcinha.xpm", &all.img_dimen, &all.img_dimen);
     all.image4 = mlx_xpm_file_to_image(all.mlx, "wall.xpm", &all.img_dimen, &all.img_dimen);
+    all.image5 = mlx_xpm_file_to_image(all.mlx, "girl.xpm", &all.img_dimen, &all.img_dimen);
 
 
-    mlx_put_image_to_window(all.mlx, all.window, all.image, 0 , 0); 
+     
  
-    /*renderizar mapa*/
-
+    /*renderizar mapa*/  // + que 17 da pau 
     map_render(&all);
+   
 
 
 

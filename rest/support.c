@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:17:27 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/24 18:39:43 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:08:36 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	linecount(char *str)
 		i++;
 	}
 
-	return (count);
+	return (count); // CUIDADO COM .BER SE NAO TEM UN \N AO FINAL ADD +1 AO COUNT 
 }
 
 int	coluncount(char *str)
