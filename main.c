@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/08 21:13:09 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:24:45 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,22 @@ int main(int argc, char *argv[])
         printf("\n");
     }
     
-    
+    printf("\n\n\n\n\n");
   
-    if(map_srt_cpy)
-        free(map_srt_cpy); // libera o malloc 999
 
+   //-------------------------check maps
 
     
+    map_char_check(&all);
+    rect_check(&all);
+ 
+ 
+    if(map_srt_cpy)
+        free(map_srt_cpy); // libera o malloc 999 // dps de dar free a map_str fica null
 
+  
+
+    
     
     all.img_dimen = 64;
     all.mlx = mlx_init(); //to use all the others init conection with graphical sis
@@ -127,12 +135,14 @@ int main(int argc, char *argv[])
     all.image5 = mlx_xpm_file_to_image(all.mlx, "girl.xpm", &all.img_dimen, &all.img_dimen);
 
 
-     
+
  
-    /*renderizar mapa*/  // + que 17 da pau 
+    /*renderizar mapa*/  
+    //funcionou com 27 POR 8 -- a partir de oito funciona
     map_render(&all);
    
 
+   
 
 
     mlx_hook(all.window,02,(1L<<0), key, &all);

@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/08 19:53:04 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:24:50 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	coluncount(char *str);
 size_t	ft_strlen(char *str);
 char    **mtxalloc(int line, int colun, char *str);
 void	map_render(isso *info);
-
+void	rect_check(isso *p);
+void	map_char_check(isso *p);
 
 /*t_data *data()
 {

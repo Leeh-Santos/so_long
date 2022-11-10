@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:17:03 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/08 20:59:22 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:23:21 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char 	**mtxalloc(int line, int colun, char *str)
 	i = 0;
 	k = 0;
 	i_str = 0;
-	mtx = malloc(line * sizeof(char*));
+	mtx = malloc(line * sizeof(char*) + 20);  //o + 20 deixa abrir o mapa e nao da erro na mem
     while (i < colun)
 	{
-		mtx[i] = malloc(colun * sizeof(char));
+		mtx[i] = malloc(colun * sizeof(char) + 10); // +10 pra nao dar erro de memoria 
 		i++;
 	}
     i = 0;
@@ -77,7 +77,7 @@ void	map_render(isso *info)
 			else if(info->map[i][k] == 'C')
 				mlx_put_image_to_window(info->mlx, info->window, info->image3, k*64, i*64);
 			else
-				boom("Map Problem, please add a compatible.ber");
+				boom("Map render Problem, please add a compatible.ber");
 			k++;
 		}
 		i++;
