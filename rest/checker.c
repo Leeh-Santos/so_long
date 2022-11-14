@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:06:19 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/10 21:29:45 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/14 21:43:47 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,44 @@ void	map_char_check(isso *p)
 	
 	if (e != 1 || pl != 1 || c < 1)
 		boom("checa seu mapa ai fera, algum char ai ta zuado");
+}
+
+void	side_check(isso *p)
+{
+	int	i;
+	
+	i = 0;
+	while(i < p->colun)
+	{
+		if(p->map[0][i] != '1')
+			boom("map not surrounded by 1 bitch");
+		i++;
+	}
+	i = 0;
+	while(i < p->colun)
+	{
+		if(p->map[p->line - 1][i] != '1')
+			boom("map not surrounded by 1 bitch");
+		i++;
+	}
+}
+
+void	side_check2(isso *p)
+{
+	int	i;
+
+	i = 0;
+	while (i < p->line)
+	{
+		if(p->map[i][0] != '1')
+			boom("fudeu de ladinho");
+		i++;
+	}
+	i = 0;
+	while(i < p->line)
+	{
+		if(p->map[i][p->colun - 1] != '1')
+			boom("fudeu de ladinho");
+		i++;
+	}
 }

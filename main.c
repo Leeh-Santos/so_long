@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/10 21:24:45 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:57:48 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,12 @@ int main(int argc, char *argv[])
 
    //-------------------------check maps
 
-    
+    side_check(&all);
+    side_check2(&all);
     map_char_check(&all);
     rect_check(&all);
+    
+    
  
  
     if(map_srt_cpy)
