@@ -4,6 +4,9 @@ SRCS	= main.c \
 			rest/support.c \
 			rest/support2.c \
 			rest/checker.c \
+			rest/checker2.c \
+			rest/move.c \
+			rest/move2.c \
 
 OBJS	= $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/14 20:57:48 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:37:39 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,28 @@ int key(int keycode, void *pointer)
     //x += (((keycode == 100) - (keycode == 97)) * 64);
     //y += (((keycode == 115) - (keycode == 119)) * 64);
     if (keycode == 115){ //down
-        novo->cord_y += 64; 
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x , novo->cord_y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x , novo->cord_y - 64);
+		move_check_down(novo);
+        //novo->cord_y += 64;
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x , novo->cord_y);
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x , novo->cord_y - 64);
         }
     if (keycode == 119){ // upp
-        novo->cord_y -= 64;
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  , novo->cord_y + 64);
+		move_check_up(novo);
+        //novo->cord_y -= 64;
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  , novo->cord_y + 64);
         }
     if (keycode == 97){ // left
-        novo->cord_x -= 64;
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  + 64, novo->cord_y);
+		move_check_left(novo);
+        //novo->cord_x -= 64;
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  + 64, novo->cord_y);
         }
     if (keycode == 100){ //right
-        novo->cord_x += 64;
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
-        mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  - 64, novo->cord_y);
+		move_check_right(novo);
+        //novo->cord_x += 64;
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
+        //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  - 64, novo->cord_y);
         }
     if (keycode == 65307)
         exit(EXIT_FAILURE);
@@ -110,6 +114,7 @@ int main(int argc, char *argv[])
     
     printf("\n\n\n\n\n");
   
+    
 
    //-------------------------check maps
 
@@ -117,6 +122,7 @@ int main(int argc, char *argv[])
     side_check2(&all);
     map_char_check(&all);
     rect_check(&all);
+    valid_path(&all);
     
     
  
@@ -147,7 +153,7 @@ int main(int argc, char *argv[])
 
    
 
-
+	printf("%d \n", all.line);
     mlx_hook(all.window,02,(1L<<0), key, &all);
 
     

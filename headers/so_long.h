@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/14 20:58:11 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:38:10 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct fodase{
     char *map_str;
     int line;
     int colun;
+    int	colect;
 }isso;
 
 
@@ -50,7 +51,15 @@ void	rect_check(isso *p);
 void	map_char_check(isso *p);
 void	side_check(isso *p);
 void	side_check2(isso *p);
-
+void    move_check_right(isso *pt);
+void    move_check_left(isso *pt);
+void    move_check_up(isso *pt);
+void    move_check_down(isso *pt);
+void	right(isso *pt, int i, int k, char c);
+void	left(isso *pt, int i, int k, char c);
+void	up(isso *pt, int i, int k, char c);
+void	down(isso *pt, int i, int k, char c);
+void    valid_path(isso *pt);
 /*t_data *data()
 {
     static t_data data;
