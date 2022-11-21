@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/21 19:37:39 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:34:40 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,33 @@ int key(int keycode, void *pointer)
     isso *novo; //struct pointer 
 
     novo = pointer;
-    printf("%d \n", keycode); // for debug
+     // for debug manda printar o keycode
     //x += (((keycode == 100) - (keycode == 97)) * 64);
     //y += (((keycode == 115) - (keycode == 119)) * 64);
     if (keycode == 115){ //down
 		move_check_down(novo);
+        //printf("%d \n", novo->steps);
         //novo->cord_y += 64;
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x , novo->cord_y);
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x , novo->cord_y - 64);
         }
     if (keycode == 119){ // upp
 		move_check_up(novo);
+        //printf("%d \n", novo->steps);
         //novo->cord_y -= 64;
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  , novo->cord_y + 64);
         }
     if (keycode == 97){ // left
 		move_check_left(novo);
+        //printf("%d \n", novo->steps);
         //novo->cord_x -= 64;
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  + 64, novo->cord_y);
         }
     if (keycode == 100){ //right
 		move_check_right(novo);
+        //printf("%d \n", novo->steps);
         //novo->cord_x += 64;
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image, novo->cord_x  , novo->cord_y);
         //mlx_put_image_to_window(novo->mlx, novo->window, novo->image2, novo->cord_x  - 64, novo->cord_y);

@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/21 19:38:10 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:26:05 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct fodase{
     int line;
     int colun;
     int	colect;
+    int steps;
 }isso;
 
 
