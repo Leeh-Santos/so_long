@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:06:19 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/17 19:27:54 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/22 20:30:44 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ void	side_check(isso *p)
 	while(i < p->colun)
 	{
 		if(p->map[0][i] != '1')
-			boom("map not surrounded by 1 bitch");
+			boom("map not surrounded by here bitch");
 		i++;
 	}
 	i = 0;
 	while(i < p->colun)
 	{
 		if(p->map[p->line - 1][i] != '1')
-			boom("map not surrounded by 1 bitch");
+			boom("map not surrounded by there bitch");
 		i++;
 	}
 }

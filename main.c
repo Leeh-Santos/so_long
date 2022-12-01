@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/21 20:34:40 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/01 18:12:13 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
     
     map_srt_cpy = malloc((999) * sizeof(char)); // SO FUNCIONA SE MALOCAR
     map_srt_cpy = ber_to_str(fd); // recebe mapa.ber 
-    printf("%s \n", map_srt_cpy);
+    //printf("%s \n", map_srt_cpy); // checkar se recebeu string
 
 
     tamanho = ft_strlen(map_srt_cpy);
@@ -108,6 +108,11 @@ int main(int argc, char *argv[])
 
     all.map = mtxalloc(all.line, all.colun, all.map_str);
 
+    
+    all.map_cpy = all.map;
+
+    printf("------------------------------------------------------------- \n");
+
     //para verificar se a str esta na matrix 
     for (int i = 0; i < all.line ; i++){
         for(int k = 0; k < all.colun; k++){
@@ -116,17 +121,19 @@ int main(int argc, char *argv[])
         printf("\n");
     }
     
-    printf("\n\n\n\n\n");
+    printf("----------------------------------------------------------------\n");
+  
   
     
 
    //-------------------------check maps
 
+
     side_check(&all);
     side_check2(&all);
     map_char_check(&all);
     rect_check(&all);
-    valid_path(&all);
+    //path_checker(&all);
     
     
  

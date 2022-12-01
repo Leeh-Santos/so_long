@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/21 20:26:05 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:16:38 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct fodase{
     int cord_y;
     int img_dimen;  
     char **map; //map matrix //ANTES ERA VOID **MAP
+    char **map_cpy;
     char *map_str;
     int line;
     int colun;
@@ -60,7 +61,11 @@ void	right(isso *pt, int i, int k, char c);
 void	left(isso *pt, int i, int k, char c);
 void	up(isso *pt, int i, int k, char c);
 void	down(isso *pt, int i, int k, char c);
-void    valid_path(isso *pt);
+
+
+//char    **mtxalloc2(int line, int colun, char *str);
+void	path_checker(isso *pt);
+//char 	**mtx_mp_cpy(isso *pt);
 /*t_data *data()
 {
     static t_data data;

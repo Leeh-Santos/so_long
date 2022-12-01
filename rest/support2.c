@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:17:03 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/10 21:23:21 by learodri         ###   ########.fr       */
+/*   Updated: 2022/11/22 21:06:50 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,54 @@ void	map_render(isso *info)
 		i++;
 	}
 }
+
+/*char 	**mtx_mp_cpy(isso *pt)
+{
+	char **map_cpy;
+	int	i;
+
+	i = 0;
+	map_cpy = malloc(pt->line * sizeof(char*) + 20);  //o + 20 deixa abrir o mapa e nao da erro na mem
+    while (i < pt->colun)
+	{
+		map_cpy[i] = malloc(pt->colun * sizeof(char) + 10); // +10 pra nao dar erro de memoria 
+		i++;
+	}
+
+	map_cpy = pt->map;
+
+	return (map_cpy);
+}*/
+
+/*char 	**mtxalloc2(int line, int colun, char *str)
+{
+	int	i;
+	int	k;
+	char **mtx;
+	int i_str;
+	
+	i = 0;
+	k = 0;
+	i_str = 0;
+	mtx = malloc(line * sizeof(char*) + 20);  //o + 20 deixa abrir o mapa e nao da erro na mem
+    while (i < colun)
+	{
+		mtx[i] = malloc(colun * sizeof(char) + 10); // +10 pra nao dar erro de memoria 
+		i++;
+	}
+    i = 0;
+	while (i <= line)
+	{	
+		k = 0;
+		if (str[i_str] == '\n') // se for \n avanca
+			i_str++;
+		while (str[i_str] != '\n')
+		{
+			mtx[i][k] = str[i_str];
+			k++;
+			i_str++;
+		}
+		i++;
+	}
+	return (mtx);
+}*/
