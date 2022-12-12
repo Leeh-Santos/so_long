@@ -6,43 +6,14 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:17:27 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/14 20:42:40 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/01 19:43:34 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-size_t	ft_strlen(char *str)
-{
-	size_t	c;
-
-	c = 0;
-	if (!str)
-		return (0);
-	while (str[c] != '\0')
-		c++;
-	return (c);
-}
 
 /*char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*string;
-	int		length_s1;
-	int		length_s2;
-
-	if (!s1 || !s2)
-		return (NULL);
-	length_s1 = strlen(s1);
-	length_s2 = strlen(s1);
-	string = malloc((length_s1 + length_s2 + 1) * sizeof(char));
-	if (!string)
-		return (NULL);
-	memcpy(string, s1, length_s1);
-	memcpy(string + length_s1, s2, length_s2);
-	return (string);
-}*/
-
-char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	c;
@@ -68,58 +39,36 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (str);
+}*/
+
+char	**ber_to_mtx(char **map, int fd, int counter)
+{
+	char	*str; // vem com o /n ao final de cada linha
+
+	str = get_next_line(fd);
+	if (str)
+		map = ber_to_mtx(map, fd, counter + 1);
+	if (!map && counter != 0)
+		map = malloc((counter + 1) * (sizeof(char *)));
+	if (!map)
+		return (NULL);
+	map[counter] = str;
+	return (map);
 }
 
-char	*ber_to_str(int fd)
+void	line_colun(isso *p)
 {
-	char	*temp;
-	static char *str;
-	int	check;
 
-	temp = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!temp)
-		boom("malloc failed");
+	int	i;
+
+	i = 0;
+	while (p->map[i])
+		i++;
+	p->line = i;
+	i = 0;
+	while (p->map[0][i])
+		i++;
+	i--;
+	p->colun = i;
 	
-	while (check != 0)
-	{
-		check = read(fd, temp, BUFFER_SIZE);
-		temp[check] = '\0';
-		str = ft_strjoin(str, temp);
-		if (check == -1)
-				boom("read func. failed");
-	}
-	free(temp);
-	//printf("%s", str);
-	return (str);
-}
-
-int	linecount(char *str)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-
-	while (str[i] != '\0')
-	{
-			if (str[i] == '\n')
-				count++;
-		i++;
-	}
-
-	return (count); // CUIDADO COM .BER SE NAO TEM UN \N AO FINAL ADD +1 AO COUNT,E O CHEKER 
-}
-
-int	coluncount(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\n')
-	{
-		i++;
-	}
-
-	return (i);
 }

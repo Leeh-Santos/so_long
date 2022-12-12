@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:06:19 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/22 20:30:44 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:21:19 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,37 @@
 void	rect_check(isso *p)
 {
 	int	i;
-	int	check;
 
 	i = 0;
-	check = 0;
-	while ( p->map_str[i] != '\0')
+	while ( i < p->line)
 	{
-		if(p->map_str[i] != '\n')
+		if(p->map[i][p->colun] != '\n')
 		{
-			check++;
-		}
-		if(p->map_str[i] == '\n')
-		{
-			if (check != p->colun)
-				boom("nao retangular viado");
-			else
-				check = 0;
+			boom("nao retangular");
 		}
 		i++;
 	}
 }
 
-void	map_char_check(isso *p)
+void	map_char_check(isso *p, int e, int c, int pl)
 {
 	int	i;
-	int	e;
-	int	c;
-	int	pl;
-
+	int k;
+	
 	i = 0;
-	e = 0;
-	c = 0;
-	pl = 0;	
-	while (p->map_str[i] != '\0')
+	while (p->map[i])
 	{
-		if(p->map_str[i] == 'E')
-			e++;
-		if(p->map_str[i] == 'P')
-			pl++;
-		if(p->map_str[i] == 'C')
-			c++;
+		k = 0;
+		while(p->map[i][k])
+		{
+			if(p->map[i][k] == 'E')
+				e++;
+			if(p->map[i][k] == 'P')
+				pl++;
+			if(p->map[i][k] == 'C')
+				c++;
+			k++;
+		}
 		i++;
 	}
 	p->colect = c;
@@ -70,14 +61,14 @@ void	side_check(isso *p)
 	while(i < p->colun)
 	{
 		if(p->map[0][i] != '1')
-			boom("map not surrounded by here bitch");
+			boom("upper part of map not surrounded by 1");
 		i++;
 	}
 	i = 0;
 	while(i < p->colun)
 	{
 		if(p->map[p->line - 1][i] != '1')
-			boom("map not surrounded by there bitch");
+			boom("lower part of map not surrounded by 1");
 		i++;
 	}
 }
@@ -90,14 +81,14 @@ void	side_check2(isso *p)
 	while (i < p->line)
 	{
 		if(p->map[i][0] != '1')
-			boom("fudeu de ladinho");
+			boom("fudeu de ladinho esquerdo");
 		i++;
 	}
 	i = 0;
 	while(i < p->line)
 	{
 		if(p->map[i][p->colun - 1] != '1')
-			boom("fudeu de ladinho");
-		i++;
+			boom("fudeu de ladinho direito");
+		i++;	
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 19:04:27 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/21 19:11:15 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:10:22 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void    move_check_right(isso *pt)
 
     i = 0;
     k = 0;
-    while(i < pt->line)
+    while(pt->map[i])
     {
         k = 0;
-            while(k < pt->colun)
+            while(pt->map[i][k])
             {
                 if(pt->map[i][k] == 'P')
                 {
@@ -45,10 +45,10 @@ void    move_check_left(isso *pt)
 
     i = 0;
     k = 0;
-    while(i < pt->line)
+    while(pt->map[i])
     {
         k = 0;
-            while(k < pt->colun)
+            while(pt->map[i][k])
             {
                 if(pt->map[i][k] == 'P')
                 {
@@ -71,10 +71,10 @@ void    move_check_up(isso *pt)
 
     i = 0;
     k = 0;
-    while(i < pt->line)
+    while(pt->map[i])
     {
         k = 0;
-            while(k < pt->colun)
+            while(pt->map[i][k])
             {
                 if(pt->map[i][k] == 'P')
                 {
@@ -97,10 +97,10 @@ void    move_check_down(isso *pt)
 
     i = 0;
     k = 0;
-    while(i < pt->line)
+    while(pt->map[i])
     {
         k = 0;
-            while(k < pt->colun)
+            while(pt->map[i][k])
             {
                 if(pt->map[i][k] == 'P')
                 {

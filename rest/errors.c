@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:35:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/10/18 19:50:54 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:28:39 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	boom(char *str)
 {
     perror(str);
-    exit(EXIT_FAILURE);
+    exit(EXIT_SUCCESS);
 }

@@ -6,44 +6,11 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:17:03 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/22 21:06:50 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/12 21:00:30 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
-
-char 	**mtxalloc(int line, int colun, char *str)
-{
-	int	i;
-	int	k;
-	char **mtx;
-	int i_str;
-	
-	i = 0;
-	k = 0;
-	i_str = 0;
-	mtx = malloc(line * sizeof(char*) + 20);  //o + 20 deixa abrir o mapa e nao da erro na mem
-    while (i < colun)
-	{
-		mtx[i] = malloc(colun * sizeof(char) + 10); // +10 pra nao dar erro de memoria 
-		i++;
-	}
-    i = 0;
-	while (i <= line)
-	{	
-		k = 0;
-		if (str[i_str] == '\n') // se for \n avanca
-			i_str++;
-		while (str[i_str] != '\n')
-		{
-			mtx[i][k] = str[i_str];
-			k++;
-			i_str++;
-		}
-		i++;
-	}
-	return (mtx);
-}
 
 void	map_render(isso *info)
 {
@@ -57,10 +24,10 @@ void	map_render(isso *info)
 
 	i = 0;
 	k = 0;
-	while(i < info->line)
+	while(info->map[i])
 	{
 		k = 0;
-		while(k < info->colun)
+		while(info->map[i][k])
 		{
 			if(info->map[i][k] == '1')
 				mlx_put_image_to_window(info->mlx, info->window, info->image4, k*64, i*64);
@@ -69,68 +36,17 @@ void	map_render(isso *info)
 			else if(info->map[i][k] == 'P')
 			{
 				mlx_put_image_to_window(info->mlx, info->window, info->image, k*64, i*64);
-				info->cord_x = k*64;
-				info->cord_y = i*64;
+				info->cord_x = k * 64;
+				info->cord_y = i * 64;
 			}
 			else if(info->map[i][k] == 'E')
 				mlx_put_image_to_window(info->mlx, info->window, info->image5, k*64, i*64);
 			else if(info->map[i][k] == 'C')
 				mlx_put_image_to_window(info->mlx, info->window, info->image3, k*64, i*64);
-			else
-				boom("Map render Problem, please add a compatible.ber");
+			/*else
+				boom("Map render Problem, please add a compatible.ber");*/
 			k++;
 		}
 		i++;
 	}
 }
-
-/*char 	**mtx_mp_cpy(isso *pt)
-{
-	char **map_cpy;
-	int	i;
-
-	i = 0;
-	map_cpy = malloc(pt->line * sizeof(char*) + 20);  //o + 20 deixa abrir o mapa e nao da erro na mem
-    while (i < pt->colun)
-	{
-		map_cpy[i] = malloc(pt->colun * sizeof(char) + 10); // +10 pra nao dar erro de memoria 
-		i++;
-	}
-
-	map_cpy = pt->map;
-
-	return (map_cpy);
-}*/
-
-/*char 	**mtxalloc2(int line, int colun, char *str)
-{
-	int	i;
-	int	k;
-	char **mtx;
-	int i_str;
-	
-	i = 0;
-	k = 0;
-	i_str = 0;
-	mtx = malloc(line * sizeof(char*) + 20);  //o + 20 deixa abrir o mapa e nao da erro na mem
-    while (i < colun)
-	{
-		mtx[i] = malloc(colun * sizeof(char) + 10); // +10 pra nao dar erro de memoria 
-		i++;
-	}
-    i = 0;
-	while (i <= line)
-	{	
-		k = 0;
-		if (str[i_str] == '\n') // se for \n avanca
-			i_str++;
-		while (str[i_str] != '\n')
-		{
-			mtx[i][k] = str[i_str];
-			k++;
-			i_str++;
-		}
-		i++;
-	}
-	return (mtx);
-}*/
