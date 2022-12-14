@@ -6,13 +6,12 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/12 21:33:28 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/14 22:04:14 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define BUFFER_SIZE 1
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -30,10 +29,8 @@ typedef struct fodase{
     void *image5;
     int cord_x;
     int cord_y;
-    int img_dimen;  
     char **map; //map matrix //ANTES ERA VOID **MAP
     char **map_cpy;
-    char *map_str;
     int tempx;
     int tempy;
     int exitx;
@@ -45,7 +42,7 @@ typedef struct fodase{
 }isso;
 
 
-void    boom(char *str);
+void	boom(char *str, isso *p);
 char	*get_next_line(int fd);
 
 size_t	ft_strlen(char *str);
@@ -64,6 +61,10 @@ void	left(isso *pt, int i, int k, char c);
 void	up(isso *pt, int i, int k, char c);
 void	down(isso *pt, int i, int k, char c);
 void	line_colun(isso *p);
+void	ber_check(char *str, isso *p);
+void	img_load(isso *p);
+int	clear_maps(isso *p);
+
 
 
 //char    **mtxalloc2(int line, int colun, char *str);

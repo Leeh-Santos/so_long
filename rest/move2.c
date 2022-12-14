@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 19:32:10 by learodri          #+#    #+#             */
-/*   Updated: 2022/11/21 20:35:25 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/14 22:04:50 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	right(isso *pt, int i, int k, char c)
                  printf("%c ", pt->map[z][y]);
             }
             printf("\n");
+            
           }*/
     }else if(c == 'C')
     {

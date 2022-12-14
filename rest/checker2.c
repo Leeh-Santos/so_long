@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:36:22 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/12 21:39:33 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/14 21:37:28 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	finalpathcheck(isso *p, int i, int k)
 		while(p->map_cpy[i][k])
 		{
 			if(p->map_cpy[i][k] == 'C')
-				boom("nao valido cachorro 'c' ");
+				boom("nao valido cachorro 'c' ", p);
 			k++;
 		}
 		i++;
@@ -83,7 +83,7 @@ void	finalpathcheck(isso *p, int i, int k)
 	p->exity - 1][p->exitx] == 'P' || p->map_cpy[p->exity][\
 	p->exitx + 1] == 'P' || p->map_cpy[p->exity] \
 	[p->exitx - 1] == 'P'))
-		boom("Princesinha sem saida");
+		boom("Princesinha sem saida", p);
 }
 
 void	path_checker(isso *pt, int j, int i)
@@ -106,7 +106,6 @@ void	path_checker(isso *pt, int j, int i)
 		j++;
 	}
 	pt->map_cpy[j] = 0;
-
 	findcord(pt);
 	vaicarai(pt->map_cpy, pt->tempy, pt->tempx);
 	finalpathcheck(pt, 0, 0);
@@ -127,3 +126,16 @@ void	path_checker(isso *pt, int j, int i)
 	}
 
 }
+
+void	ber_check(char *str, isso *p)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	if (str[i - 1] != 'r' || str[i - 2] != 'e' || \
+	str[i - 3] != 'b' || str[i - 4] != '.')
+		boom("not .ber dude", p);
+}
+
