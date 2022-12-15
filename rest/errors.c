@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:35:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 19:48:55 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:32:22 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 void	boom(char *str, isso *p)
 {
-	write(1, "error/n", 7);
-    perror(str);
-    clear_maps(p);
+	write(1, "error\n", 7);
+	perror(str);
+	clear_maps(p);
 }
 
-void	endgame(isso *p) // imagem window, mlx 
+void	endgame(isso *p)
 {
-	mlx_destroy_image(p->mlx, p->image);
-	mlx_destroy_image(p->mlx, p->image2);
-	mlx_destroy_image(p->mlx, p->image3);
-	mlx_destroy_image(p->mlx, p->image4);
-	mlx_destroy_image(p->mlx, p->image5);
-	//free(p->image);
-	//free(p->image2);
-	//free(p->image3);
-	//free(p->image4);
-	//free(p->image5);
-	
+	if (p->image)
+		mlx_destroy_image(p->mlx, p->image);
+	if (p->image2)
+		mlx_destroy_image(p->mlx, p->image2);
+	if (p->image3)
+		mlx_destroy_image(p->mlx, p->image3);
+	if (p->image4)
+		mlx_destroy_image(p->mlx, p->image4);
+	if (p->image5)
+		mlx_destroy_image(p->mlx, p->image5);
 	if (p->window)
 		mlx_destroy_window(p->mlx, p->window);
 	if (p->mlx)
@@ -42,7 +41,7 @@ void	endgame(isso *p) // imagem window, mlx
 	exit(EXIT_SUCCESS);
 }
 
-int	clear_maps(isso *p) // limpa as matrises
+int	clear_maps(isso *p)
 {
 	int	i;
 
@@ -66,4 +65,6 @@ int	clear_maps(isso *p) // limpa as matrises
 	return (1);
 }
 
+/*
 // valgrind --leak-check=yes
+*/

@@ -6,16 +6,15 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:36:22 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/14 21:37:28 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:35:57 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void    vaicarai(char **map, int x, int y)
+void	vaicarai(char **map, int x, int y)
 {
-
-    if (map[x + 1][y] && (map[x + 1][y] == 'C' || map[x + 1][y] == '0'))
+	if (map[x + 1][y] && (map[x + 1][y] == 'C' || map[x + 1][y] == '0'))
 	{
 		map[x + 1][y] = 'P';
 		vaicarai(map, x + 1, y);
@@ -40,20 +39,20 @@ void    vaicarai(char **map, int x, int y)
 void	findcord(isso *p)
 {
 	int	i;
-	int k;
-	
+	int	k;
+
 	i = 0;
 	while (p->map[i])
 	{
 		k = 0;
-		while(p->map[i][k])
+		while (p->map[i][k])
 		{
-			if(p->map[i][k] == 'P')
+			if (p->map[i][k] == 'P')
 			{
 				p->tempx = k;
 				p->tempy = i;
 			}
-			if(p->map[i][k] == 'E')
+			if (p->map[i][k] == 'E')
 			{
 				p->exitx = k;
 				p->exity = i;
@@ -66,19 +65,17 @@ void	findcord(isso *p)
 
 void	finalpathcheck(isso *p, int i, int k)
 {
-
 	while (p->map_cpy[i])
 	{
 		k = 0;
-		while(p->map_cpy[i][k])
+		while (p->map_cpy[i][k])
 		{
-			if(p->map_cpy[i][k] == 'C')
+			if (p->map_cpy[i][k] == 'C')
 				boom("nao valido cachorro 'c' ", p);
 			k++;
 		}
 		i++;
 	}
-
 	if (!(p->map_cpy[p->exity + 1][p->exitx] == 'P' || p->map_cpy[\
 	p->exity - 1][p->exitx] == 'P' || p->map_cpy[p->exity][\
 	p->exitx + 1] == 'P' || p->map_cpy[p->exity] \
@@ -88,8 +85,6 @@ void	finalpathcheck(isso *p, int i, int k)
 
 void	path_checker(isso *pt, int j, int i)
 {
-  	//vaicarai(pt->map_cpy, pt->cord_y / 64, pt->cord_x / 64, pt);
-
 	pt->map_cpy = malloc((pt->line + 1) * sizeof(char *));
 	if (!pt->map_cpy)
 		return ;
@@ -109,22 +104,6 @@ void	path_checker(isso *pt, int j, int i)
 	findcord(pt);
 	vaicarai(pt->map_cpy, pt->tempy, pt->tempx);
 	finalpathcheck(pt, 0, 0);
-
-	j = 0;
-	 
-	while (pt->map_cpy[j])
-	{
-		i = 0;
-		
-		while (pt->map_cpy[j][i])
-		{
-			printf("%c", pt->map_cpy[j][i]);
-			i++;
-		}
-		
-		j++;
-	}
-
 }
 
 void	ber_check(char *str, isso *p)
@@ -138,4 +117,3 @@ void	ber_check(char *str, isso *p)
 	str[i - 3] != 'b' || str[i - 4] != '.')
 		boom("not .ber dude", p);
 }
-

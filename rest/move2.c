@@ -6,11 +6,27 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 19:32:10 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 18:51:04 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:57:17 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+void	ft_putchar(char c) {
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb) {
+	if (nb < 0) {
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10) {
+		ft_putnbr(nb / 10);
+		nb = nb % 10;
+	}
+	if (nb < 10) ft_putchar(nb + 48);
+}
 
 void	right(isso *pt, int i, int k, char c)
 {
@@ -22,7 +38,8 @@ void	right(isso *pt, int i, int k, char c)
         pt->map[i][k + 1] = 'P';
         pt->map[i][k] = '0';
         pt->steps++;
-        printf("%d \n", pt->steps);
+		ft_putnbr(pt->steps);
+		write(1, "\n", 1);
         /*for (int z = 0; z < pt->line ; z++){
             for(int y = 0; y < pt->colun; y++){
                  printf("%c ", pt->map[z][y]);
@@ -39,7 +56,8 @@ void	right(isso *pt, int i, int k, char c)
         pt->map[i][k] = '0';
         pt->colect--;
         pt->steps++;
-        printf("%d \n", pt->steps);
+        ft_putnbr(pt->steps);
+		write(1, "\n", 1);
     }else if(c == 'E')
     {
         if(pt->colect == 0)
@@ -59,7 +77,8 @@ void	left(isso *pt, int i, int k, char c)
         pt->map[i][k - 1] = 'P';
         pt->map[i][k] = '0';
         pt->steps++;
-        printf("%d \n", pt->steps);
+		ft_putnbr(pt->steps);
+		write(1, "\n", 1);
                         /*for (int z = 0; z < pt->line ; z++){
                             for(int y = 0; y < pt->colun; y++){
                                 printf("%c ", pt->map[z][y]);
@@ -75,7 +94,8 @@ void	left(isso *pt, int i, int k, char c)
         pt->map[i][k] = '0';
         pt->colect--;
         pt->steps++;
-        printf("%d \n", pt->steps);
+        ft_putnbr(pt->steps);
+		write(1, "\n", 1);
     }else if(c == 'E')
     {
         if(pt->colect == 0)
@@ -93,7 +113,8 @@ void	up(isso *pt, int i, int k, char c)
         pt->map[i][k] = '0';
         pt->map[i - 1][k] = 'P';
         pt->steps++;
-        printf("%d \n", pt->steps);
+		ft_putnbr(pt->steps);
+		write(1, "\n", 1);
                         /*for (int z = 0; z < pt->line ; z++){
                             for(int y = 0; y < pt->colun; y++){
                                 printf("%c ", pt->map[z][y]);
@@ -109,7 +130,8 @@ void	up(isso *pt, int i, int k, char c)
         pt->map[i - 1][k] = 'P';
         pt->colect--;
         pt->steps++;
-        printf("%d \n", pt->steps);
+        ft_putnbr(pt->steps);
+		write(1, "\n", 1);
     }else if(c == 'E')
     {
         if(pt->colect == 0)
@@ -129,7 +151,8 @@ void	down(isso *pt, int i, int k, char c)
         pt->map[i][k] = '0';
         pt->map[i + 1][k] = 'P';
         pt->steps++;
-        printf("%d \n", pt->steps);
+        ft_putnbr(pt->steps);
+		write(1, "\n", 1);
                         /*for (int z = 0; z < pt->line ; z++){
                             for(int y = 0; y < pt->colun; y++){
                                 printf("%c ", pt->map[z][y]);
@@ -145,7 +168,8 @@ void	down(isso *pt, int i, int k, char c)
         pt->map[i + 1][k] = 'P';
         pt->colect--;
         pt->steps++;
-        printf("%d \n", pt->steps);
+        ft_putnbr(pt->steps);
+		write(1, "\n", 1);
     }else if(c == 'E')
     {
         if(pt->colect == 0)

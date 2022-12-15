@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:06:19 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/14 21:35:33 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 21:03:40 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	rect_check(isso *p)
 	int	i;
 
 	i = 0;
-	while ( i < p->line)
+	while (i < p->line)
 	{
-		if(p->map[i][p->colun] != '\n')
+		if (p->map[i][p->colun] != '\n')
 		{
 			boom("nao retangular", p);
 		}
@@ -30,19 +30,19 @@ void	rect_check(isso *p)
 void	map_char_check(isso *p, int e, int c, int pl)
 {
 	int	i;
-	int k;
-	
+	int	k;
+
 	i = 0;
 	while (p->map[i])
 	{
 		k = 0;
-		while(p->map[i][k])
+		while (p->map[i][k])
 		{
-			if(p->map[i][k] == 'E')
+			if (p->map[i][k] == 'E')
 				e++;
-			if(p->map[i][k] == 'P')
+			if (p->map[i][k] == 'P')
 				pl++;
-			if(p->map[i][k] == 'C')
+			if (p->map[i][k] == 'C')
 				c++;
 			k++;
 		}
@@ -56,18 +56,18 @@ void	map_char_check(isso *p, int e, int c, int pl)
 void	side_check(isso *p)
 {
 	int	i;
-	
+
 	i = 0;
-	while(i < p->colun)
+	while (i < p->colun)
 	{
-		if(p->map[0][i] != '1')
+		if (p->map[0][i] != '1')
 			boom("upper part of map not surrounded by 1", p);
 		i++;
 	}
 	i = 0;
-	while(i < p->colun)
+	while (i < p->colun)
 	{
-		if(p->map[p->line - 1][i] != '1')
+		if (p->map[p->line - 1][i] != '1')
 			boom("lower part of map not surrounded by 1", p);
 		i++;
 	}
@@ -80,15 +80,15 @@ void	side_check2(isso *p)
 	i = 0;
 	while (i < p->line)
 	{
-		if(p->map[i][0] != '1')
+		if (p->map[i][0] != '1')
 			boom("fudeu de ladinho esquerdo", p);
 		i++;
 	}
 	i = 0;
-	while(i < p->line)
+	while (i < p->line)
 	{
-		if(p->map[i][p->colun - 1] != '1')
+		if (p->map[i][p->colun - 1] != '1')
 			boom("fudeu de ladinho direito", p);
-		i++;	
+		i++;
 	}
 }

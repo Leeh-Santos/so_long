@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 19:50:19 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 20:58:14 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,112 +15,55 @@
 #include <stdlib.h>
 #include "headers/so_long.h"
 
-int key(int keycode, void *pointer)
+int	key(int keycode, void *pointer)
 {
-    //tatic int  y = 0; //coordenadas
-    //static int  x = 0; //coordenadas
-    isso *novo; //struct pointer 
+	isso	*novo;
 
-    novo = pointer;
-     // for debug manda printar o keycode
-    //x += (((keycode == 100) - (keycode == 97)) * 64);
-    //y += (((keycode == 115) - (keycode == 119)) * 64);
-    if (keycode == 115){ //down
+	novo = pointer;
+	if (keycode == 115)
 		move_check_down(novo);
-        }
-    if (keycode == 119){ // upp
+	if (keycode == 119)
 		move_check_up(novo);
-        }
-    if (keycode == 97){ // left
+	if (keycode == 97)
 		move_check_left(novo);
-        }
-    if (keycode == 100){ //right
+	if (keycode == 100)
 		move_check_right(novo);
-        }
-    if (keycode == 65307)
-        clear_maps(novo);
-        //exit(EXIT_SUCCESS);
-    
-    return (1);
+	if (keycode == 65307)
+		clear_maps(novo);
+	return (1);
 }
 
-int main(int argc, char *argv[])
+void	tryit(isso *p)
 {
-    static isso all;
-    int fd;
-    //(void)argc;
-    int i;
-    int j;
+	side_check(p);
+	side_check2(p);
+	map_char_check(p, 0, 0, 0);
+	rect_check(p);
+}
 
-    if (argc != 2)
+int	main(int argc, char *argv[])
+{
+	int				fd;
+	static isso		all;
+
+	if (argc != 2)
 		boom("Wrong number of arguments budy", &all);
-
-    
-    fd = open(argv[1], O_RDONLY);
-    if (fd < 0)
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
 		boom("problem to open .ber bro", &all);
 	all.map = ber_to_mtx(NULL, fd, 0);
-    close(fd);
-    ber_check(argv[1], &all);
-
-    
-	while (all.map[j])
-	{
-		i = 0;
-		
-		while (all.map[j][i])
-		{
-			printf("%c", all.map[j][i]);
-			i++;
-		}
-		
-		j++;
-	}
-    
+	close(fd);
+	ber_check(argv[1], &all);
 	line_colun(&all);
-
-	printf("-----------------------------------\n");
-
-	printf("numero de linhas %d, numero de colunas %d \n", all.line, all.colun);
-
-	printf("-----------------------------------\n");
-  
-	
-    
-
-   //-------------------------check maps
-
-	
-    side_check(&all);
-    side_check2(&all);
-	map_char_check(&all, 0, 0, 0);
-    rect_check(&all);
-    path_checker(&all, 0, 0);
-    
-    
-
-
-  
-
-    
-    
-    
-    all.mlx = mlx_init(); //to use all the others init conection with graphical sis
-    all.window = mlx_new_window(all.mlx, all.colun*64, all.line*64, "so_fuckin_long");
-	img_load(&all);  
-    
-    map_render(&all);
-   
-
-   
-
-    mlx_hook(all.window,02,(1L<<0), key, &all);
-    mlx_hook(all.window, 17, (1L << 2), clear_maps, &all);
-
-    
-    mlx_loop(all.mlx); // keep window opened
-
-    return 0;
-
+	path_checker(&all, 0, 0);
+	tryit(&all);
+	all.mlx = mlx_init();
+	all.window = mlx_new_window
+		(all.mlx, all.colun * 64, all.line * 64, "so_long");
+	img_load(&all);
+	map_render(&all);
+	mlx_hook(all.window, 02, (1L << 0), key, &all);
+	mlx_hook(all.window, 17, (1L << 2), clear_maps, &all);
+	mlx_loop(all.mlx);
+	return (0);
 }
-
