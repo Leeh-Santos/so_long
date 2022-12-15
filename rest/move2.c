@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 19:32:10 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/14 22:04:50 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:51:04 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	right(isso *pt, int i, int k, char c)
     }else if(c == 'E')
     {
         if(pt->colect == 0)
-            exit(EXIT_FAILURE);
+            clear_maps(pt);
         
     }
     
@@ -79,7 +79,7 @@ void	left(isso *pt, int i, int k, char c)
     }else if(c == 'E')
     {
         if(pt->colect == 0)
-            exit(EXIT_FAILURE);
+            clear_maps(pt);
     }
 }
 
@@ -113,7 +113,7 @@ void	up(isso *pt, int i, int k, char c)
     }else if(c == 'E')
     {
         if(pt->colect == 0)
-            exit(EXIT_FAILURE);
+            clear_maps(pt);
         
     }
     
@@ -149,7 +149,7 @@ void	down(isso *pt, int i, int k, char c)
     }else if(c == 'E')
     {
         if(pt->colect == 0)
-            exit(EXIT_FAILURE);
+            clear_maps(pt);
         
     }
 }

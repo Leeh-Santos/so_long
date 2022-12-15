@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:35:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/14 22:09:13 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:48:55 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ void	endgame(isso *p) // imagem window, mlx
 	mlx_destroy_image(p->mlx, p->image3);
 	mlx_destroy_image(p->mlx, p->image4);
 	mlx_destroy_image(p->mlx, p->image5);
-		
+	//free(p->image);
+	//free(p->image2);
+	//free(p->image3);
+	//free(p->image4);
+	//free(p->image5);
+	
 	if (p->window)
 		mlx_destroy_window(p->mlx, p->window);
 	if (p->mlx)

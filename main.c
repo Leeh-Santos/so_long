@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/14 22:01:56 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/15 19:50:19 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int key(int keycode, void *pointer)
 		move_check_right(novo);
         }
     if (keycode == 65307)
-        exit(EXIT_FAILURE);
-
+        clear_maps(novo);
+        //exit(EXIT_SUCCESS);
     
     return (1);
 }
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 {
     static isso all;
     int fd;
-    (void)argc;
+    //(void)argc;
     int i;
     int j;
 
