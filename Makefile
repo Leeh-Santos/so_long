@@ -9,6 +9,7 @@ SRCS	= main.c \
 			rest/move2.c \
 			rest/get_next_line.c \
 			rest/get_next_line_utils.c \
+			rest/nasty.c \
 
 OBJS	= $(SRCS:.c=.o)
 

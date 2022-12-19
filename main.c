@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 20:58:14 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 19:53:51 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	key(int keycode, void *pointer)
 {
-	isso	*novo;
+	t_isso	*novo;
 
 	novo = pointer;
 	if (keycode == 115)
@@ -33,7 +33,7 @@ int	key(int keycode, void *pointer)
 	return (1);
 }
 
-void	tryit(isso *p)
+void	tryit(t_isso *p)
 {
 	side_check(p);
 	side_check2(p);
@@ -44,7 +44,7 @@ void	tryit(isso *p)
 int	main(int argc, char *argv[])
 {
 	int				fd;
-	static isso		all;
+	static t_isso	all;
 
 	if (argc != 2)
 		boom("Wrong number of arguments budy", &all);

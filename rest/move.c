@@ -6,13 +6,13 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 19:04:27 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 21:53:58 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:32:14 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	move_check_right(isso *pt)
+void	move_check_right(t_isso *pt)
 {
 	int	i;
 	int	k;
@@ -39,7 +39,7 @@ void	move_check_right(isso *pt)
 	}
 }
 
-void	move_check_left(isso *pt)
+void	move_check_left(t_isso *pt)
 {
 	int	i;
 	int	k;
@@ -66,7 +66,7 @@ void	move_check_left(isso *pt)
 	}
 }
 
-void	move_check_up(isso *pt)
+void	move_check_up(t_isso *pt)
 {
 	int	i;
 	int	k;
@@ -93,7 +93,7 @@ void	move_check_up(isso *pt)
 	}
 }
 
-void	move_check_down(isso *pt)
+void	move_check_down(t_isso *pt)
 {
 	int	i;
 	int	k;

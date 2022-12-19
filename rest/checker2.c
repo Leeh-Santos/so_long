@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:36:22 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 21:35:57 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:33:08 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	vaicarai(char **map, int x, int y)
 	}
 }
 
-void	findcord(isso *p)
+void	findcord(t_isso *p)
 {
 	int	i;
 	int	k;
@@ -63,7 +63,7 @@ void	findcord(isso *p)
 	}
 }
 
-void	finalpathcheck(isso *p, int i, int k)
+void	finalpathcheck(t_isso *p, int i, int k)
 {
 	while (p->map_cpy[i])
 	{
@@ -83,7 +83,7 @@ void	finalpathcheck(isso *p, int i, int k)
 		boom("Princesinha sem saida", p);
 }
 
-void	path_checker(isso *pt, int j, int i)
+void	path_checker(t_isso *pt, int j, int i)
 {
 	pt->map_cpy = malloc((pt->line + 1) * sizeof(char *));
 	if (!pt->map_cpy)
@@ -106,7 +106,7 @@ void	path_checker(isso *pt, int j, int i)
 	finalpathcheck(pt, 0, 0);
 }
 
-void	ber_check(char *str, isso *p)
+void	ber_check(char *str, t_isso *p)
 {
 	int	i;
 

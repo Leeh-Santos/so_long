@@ -6,13 +6,13 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:06:19 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/15 21:03:40 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:33:29 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	rect_check(isso *p)
+void	rect_check(t_isso *p)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ void	rect_check(isso *p)
 	}
 }
 
-void	map_char_check(isso *p, int e, int c, int pl)
+void	map_char_check(t_isso *p, int e, int c, int pl)
 {
 	int	i;
 	int	k;
@@ -53,7 +53,7 @@ void	map_char_check(isso *p, int e, int c, int pl)
 		boom("checa seu mapa ai fera, algum char ai ta zuado", p);
 }
 
-void	side_check(isso *p)
+void	side_check(t_isso *p)
 {
 	int	i;
 
@@ -73,7 +73,7 @@ void	side_check(isso *p)
 	}
 }
 
-void	side_check2(isso *p)
+void	side_check2(t_isso *p)
 {
 	int	i;
 
