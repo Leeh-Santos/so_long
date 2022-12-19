@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/19 19:53:51 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 20:16:23 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	main(int argc, char *argv[])
 	if (fd < 0)
 		boom("problem to open .ber bro", &all);
 	all.map = ber_to_mtx(NULL, fd, 0);
+	if (!all.map || all.map[0][0] != '1')
+		boom("nada no mapa parca", &all);
 	close(fd);
 	ber_check(argv[1], &all);
 	line_colun(&all);
