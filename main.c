@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:32:06 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/19 20:16:23 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 21:13:33 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	tryit(t_isso *p)
 	side_check2(p);
 	map_char_check(p, 0, 0, 0);
 	rect_check(p);
+	each_char(p);
 }
 
 int	main(int argc, char *argv[])
@@ -57,8 +58,8 @@ int	main(int argc, char *argv[])
 	close(fd);
 	ber_check(argv[1], &all);
 	line_colun(&all);
-	path_checker(&all, 0, 0);
 	tryit(&all);
+	path_checker(&all, 0, 0);
 	all.mlx = mlx_init();
 	all.window = mlx_new_window
 		(all.mlx, all.colun * 64, all.line * 64, "so_long");

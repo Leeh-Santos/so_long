@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:06:19 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/19 18:33:29 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 21:18:42 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,38 @@ void	side_check2(t_isso *p)
 	while (i < p->line)
 	{
 		if (p->map[i][0] != '1')
-			boom("fudeu de ladinho esquerdo", p);
+			boom("deu ruim de ladinho esquerdo", p);
 		i++;
 	}
 	i = 0;
 	while (i < p->line)
 	{
 		if (p->map[i][p->colun - 1] != '1')
-			boom("fudeu de ladinho direito", p);
+			boom("deu ruim de ladinho direito", p);
+		i++;
+	}
+}
+
+void	each_char(t_isso *pt)
+{
+	int	i;
+	int	k;
+
+	i = 0;
+	k = 0;
+	while (pt->map[i])
+	{
+		k = 0;
+		while (pt->map[i][k])
+		{
+			if (pt->map[i][k] != 'P' && pt->map[i][k] != 'E' &&
+			pt->map[i][k] != '0' && pt->map[i][k] != '1' &&
+			pt->map[i][k] != 'C' && pt->map[i][k] != '\n')
+			{
+				boom("tem um char esquisito ai", pt);
+			}
+			k++;
+		}
 		i++;
 	}
 }

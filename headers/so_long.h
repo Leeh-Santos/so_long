@@ -6,7 +6,7 @@
 /*   By: learodri <learodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:22:09 by learodri          #+#    #+#             */
-/*   Updated: 2022/12/19 19:52:19 by learodri         ###   ########.fr       */
+/*   Updated: 2022/12/19 20:58:31 by learodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <string.h>
 # include <mlx.h>
 
-typedef struct fodase{
+typedef struct tantofaz{
 	void	*mlx;
 	void	*window;
 	void	*image;
@@ -68,5 +68,6 @@ void	right_0(t_isso *pt, int i, int k);
 void	left_0(t_isso *pt, int i, int k);
 void	up_0(t_isso *pt, int i, int k);
 void	down_0(t_isso *pt, int i, int k);
+void	each_char(t_isso *pt);
 
 #endif
